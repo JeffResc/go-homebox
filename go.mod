@@ -1,4 +1,4 @@
-module github.com/jeffresc/homebox-sdk-go
+module github.com/jeffresc/go-homebox
 
 go 1.25.2
 

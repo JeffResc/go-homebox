@@ -5,7 +5,7 @@ A Go SDK for the [Homebox](https://github.com/sysadminsmedia/homebox) inventory 
 ## Installation
 
 ```bash
-go get github.com/jeffresc/homebox-sdk-go
+go get github.com/jeffresc/go-homebox
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ package main
 import (
     "context"
     "log"
-    "github.com/jeffresc/homebox-sdk-go/client"
+    "github.com/jeffresc/go-homebox/client"
 )
 
 func main() {

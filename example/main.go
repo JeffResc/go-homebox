@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	homebox "github.com/jeffresc/homebox-sdk-go/client"
+	homebox "github.com/jeffresc/go-homebox/client"
 )
 
 func main() {
