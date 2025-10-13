@@ -111,49 +111,10 @@ After updating the URL, run `make generate` to regenerate the SDK.
 - `make test` - Run tests
 - `make deps` - Install/update dependencies
 
-## Automated Updates
-
-This repository is configured for automated updates:
-
-### GitHub Actions
-
-A GitHub Actions workflow runs weekly (or on-demand) to check for updates to the OpenAPI spec and automatically creates a PR if changes are detected.
-
-You can manually trigger the workflow from the Actions tab in your repository.
-
-### Renovate/Dependabot
-
-The repository includes configuration for both Renovate and Dependabot:
-
-- **Renovate** (`renovate.json`): Configured to monitor the `.openapi-url` file for changes to the branch/tag reference
-- **Dependabot** (`.github/dependabot.yml`): Keeps Go module dependencies and GitHub Actions up to date
-
-When using Renovate, it can detect when a new tag is available in the upstream repository and create a PR to update the URL in `.openapi-url`, which will trigger regeneration.
-
-## Project Structure
-
-```
-.
-├── .github/
-│   ├── workflows/
-│   │   └── regenerate.yml      # GitHub Actions workflow for auto-regeneration
-│   └── dependabot.yml          # Dependabot configuration
-├── client/                      # Generated SDK code (auto-generated)
-│   └── client.go
-├── scripts/
-│   └── generate.sh             # Generation script
-├── .openapi-url                # OpenAPI spec URL (edit this to update)
-├── .oapi-codegen.yaml          # oapi-codegen configuration
-├── Makefile                    # Build automation
-├── renovate.json               # Renovate configuration
-├── go.mod
-└── README.md
-```
-
 ## Contributing
 
 Contributions are welcome! Please note that the code in the `client/` directory is auto-generated and should not be edited directly. Instead, submit issues or PRs to improve the generation process or documentation.
 
 ## License
 
-[Your chosen license]
+MIT
