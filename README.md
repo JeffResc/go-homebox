@@ -9,63 +9,7 @@ go get github.com/jeffresc/go-homebox
 ```
 
 ## Usage
-
-```go
-package main
-
-import (
-    "context"
-    "log"
-    "github.com/jeffresc/go-homebox/client"
-)
-
-func main() {
-    // Create a new client
-    baseURL := "https://your-homebox-instance.com"
-    httpClient := &http.Client{}
-
-    c, err := client.NewClientWithResponses(baseURL, client.WithHTTPClient(httpClient))
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    ctx := context.Background()
-
-    // Example: Login
-    loginResp, err := c.V1UserLoginWithResponse(ctx, client.V1UserLoginJSONRequestBody{
-        Username: "your-username",
-        Password: "your-password",
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Use the token for authenticated requests
-    token := loginResp.JSON200.Token
-
-    // Create authenticated client
-    authClient, err := client.NewClientWithResponses(
-        baseURL,
-        client.WithRequestEditorFn(func(ctx context.Context, req *http.Request) error {
-            req.Header.Set("Authorization", "Bearer " + *token)
-            return nil
-        }),
-    )
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Example: Get items
-    itemsResp, err := authClient.V1ItemsWithResponse(ctx, &client.V1ItemsParams{})
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    for _, item := range itemsResp.JSON200.Items {
-        log.Printf("Item: %s\n", item.Name)
-    }
-}
-```
+For usage examples, see the [example/](example/) directory.
 
 ## Development
 
