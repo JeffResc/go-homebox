@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchFileNames": [".openapi-url"],
+      "enabled": true
+    }
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^\\.openapi-url$"],
+      "matchStrings": [
+        "https://raw\\.githubusercontent\\.com/(?<depName>[^/]+/[^/]+)/refs/heads/(?<currentValue>[^/]+)/.*"
+      ],
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "loose"
+    }
+  ]
+}

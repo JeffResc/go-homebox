@@ -1,0 +1,9 @@
+package: homebox
+output: client/client.go
+generate:
+  chi-server: false
+  client: true
+  models: true
+  embedded-spec: false
+output-options:
+  skip-prune: true
